@@ -9,7 +9,7 @@ export default function Empty({ }) {
       alignItems :"center",
       flexDirection : "column"
   }}>
-      <Image src="/assets/icon/empty.svg" width={250} height={250}/>
+      <Image alt="empty" src="/assets/icon/empty.svg" width={250} height={250}/>
       <p>Sorry We don't have data about it.</p>
   </div>;
 }
