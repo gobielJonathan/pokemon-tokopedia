@@ -15,4 +15,6 @@ module.exports = {
         "^@/gql/(.*)$": "<rootDir>/gql/$1"
     },
     transformIgnorePatterns : ['/node_modules/'],
+    testEnvironment: "jsdom",
+    verbose : true
 };
