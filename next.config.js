@@ -2,8 +2,8 @@ const withTM = require('next-transpile-modules')([
   'lodash-es'
 ])
 
-const withPWA = require('next-pwa')
-const runtimeCaching = require('next-pwa/cache')
+// const withPWA = require('next-pwa')
+// const runtimeCaching = require('next-pwa/cache')
 
 const withPlugins = require('next-compose-plugins')
 const nextBuildId = require('next-build-id')
@@ -12,7 +12,7 @@ const dev = process.env.NODE_ENV === 'development'
 
 module.exports = withPlugins([
   [withTM],
-  [withPWA]
+  // [withPWA]
 ], {
   images: {
     domains: ['raw.githubusercontent.com'],
@@ -20,10 +20,10 @@ module.exports = withPlugins([
   future: {
     webpack5: true,
   },
-  pwa: {
-    dest: 'public',
-    runtimeCaching,
-  },
+  // pwa: {
+  //   dest: 'public',
+  //   runtimeCaching,
+  // },
   generateBuildId: () => nextBuildId({ dir: __dirname }),
   async redirects() {
     return [

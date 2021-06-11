@@ -8,6 +8,7 @@
             "@/styles/*" : ["styles/*"],
             "@/api/*" : ["api/*"],
             "@/provider/*" : ["provider/*"],
+            "@/page/*" : ["pages/*"],
             "@/gql/*" : ["gql/*"]
         }
     }

@@ -1,15 +1,13 @@
 /** @jsxImportSource @emotion/react */
 import { breakpoints } from "@/styles/variable";
-import { jsx, css } from "@emotion/react";
+import { css } from "@emotion/react";
 import facepaint from "facepaint";
 import { Formik, Form } from "formik";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { PokemonContext } from "provider/pokemon.provider";
+import { PokemonContext } from "@/provider/pokemon.provider";
 import { useContext } from "react";
-import { ButtonPrimary } from "../button";
 import Container from "../container";
-import Heading from "../heading";
 import InputText from "../input/text";
 
 const mq = facepaint(breakpoints.map((bp) => `@media (min-width: ${bp}px)`));
