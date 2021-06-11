@@ -24,6 +24,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "test": "jest",
     "start": "next start",
     "prod": "set NODE_ENV=production &&  pm2 start server.js"
   },
@@ -46,6 +47,7 @@
     ]
   },
   "devDependencies": {
-    "babel-plugin-transform-remove-console": "^6.9.4"
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "jest": "^27.0.4"
   }
 }
