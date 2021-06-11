@@ -4,7 +4,7 @@ import { jsx, css } from "@emotion/react";
 import { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 
-export default function Toast({ children, show = false, type = "primary" }) {
+export default function Toast({ children, show = true, type = "primary" }) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);

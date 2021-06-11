@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { jsx, css } from "@emotion/react";
 
-export default function Flex({ children, centerV = false, centerH = false, height = 'auto' }) {
+export default function Flex({ children, centerV = false, centerH = false, height = 'auto', wrap= true }) {
   let styles = {};
 
   if (centerH) {
@@ -19,7 +19,7 @@ export default function Flex({ children, centerV = false, centerH = false, heigh
     <div
       css={{
         display: "flex",
-        flexWrap: "wrap",
+        flexWrap: wrap ? "wrap" :"nowrap",
         ...styles,
       }}
     >

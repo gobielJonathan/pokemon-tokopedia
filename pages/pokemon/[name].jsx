@@ -21,6 +21,7 @@ import { PokemonContext } from "@/provider/pokemon.provider";
 import { ToastContext } from "@/provider/toast.provider";
 import InputText from "@/component/input/text";
 import Empty from "@/component/empty";
+import Margin from "@/component/margin";
 
 const tabs = ["Moves", "Abilities", "Type"];
 
@@ -93,15 +94,16 @@ export default function PokemonDetail({
                 </Heading>
               </div>
             </Col>
-            <Col col={6}>
+            <Col sm={8} md={6} lg={6}>
               <Space direction="horizontal">
                 {tabs.map((data, idx) => (
                   <NavTab
                     key={idx}
+                  >
+                    <NavItem
                     active={idx == activeTab}
                     click={() => changeTab(idx)}
-                  >
-                    <NavItem>{data}</NavItem>
+                    >{data}</NavItem>
                   </NavTab>
                 ))}
               </Space>
@@ -112,7 +114,7 @@ export default function PokemonDetail({
 
       <Container>
         <div className="d-flex flex-wrap">
-          <Col sm={12} md={12} lg={4}>
+          <Col sm={12} md={12} lg={5} xl={4}>
             <div style={{ width: 300, height: 300 }}>
               <Card>
                 <Image
@@ -126,8 +128,10 @@ export default function PokemonDetail({
               </Card>
             </div>
           </Col>
-          <Col sm={12} md={12} lg={6}>
+          <Col sm={12} md={12} lg={6} xl={6}>
+            <Margin sm={"mt-2"} md="mt-2" lg="mt-0">
             <Heading size={2}>{name}</Heading>
+            </Margin>
 
             <Space>
               <Flex>
@@ -247,8 +251,6 @@ export async function getServerSideProps(ctx) {
       name,
     },
   });
-
-  console.log(pokemon);
 
   return {
     props: {

@@ -56,7 +56,6 @@ export default function Header() {
             <Formik
               initialValues={{ search: "" }}
               onSubmit={({ search }) => {
-                console.log(search);
                 push({ pathname: "/pokemon/[name]", query : {name : search} });
               }}
             >

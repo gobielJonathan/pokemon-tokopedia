@@ -32,10 +32,11 @@ export default function Space({
         "& > *": {
           margin,
         },
-        height : "100%"
+        height : "100%",
+        overflow : "auto"
       }}
     >
-      {direction == "horizontal" && <Flex height={"full"}>{children}</Flex>}
+      {direction == "horizontal" && <Flex wrap={false} height={"full"}>{children}</Flex>}
       {direction == "vertical" && children}
     </div>
   );

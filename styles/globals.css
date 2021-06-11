@@ -111,3 +111,11 @@ a {
 .rounded-circle{
   border-radius: 50%;
 }
+
+.overflow-x{
+  overflow-x: auto
+}
+
+.overflow-y{
+  overflow-y: auto
+}

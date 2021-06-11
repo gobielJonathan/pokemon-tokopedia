@@ -25,7 +25,7 @@ export default function PokemonCard({ data: { id, name, image } }) {
             name,
             image,
           },
-        })} className="position-relative d-flex justify-content-center">
+        }, undefined, {scroll :false})} className="position-relative d-flex justify-content-center">
         <Image alt={`${name}'s image`} objectFit="contain" src={image} width={350} height={350} />
       </div>
       <p className="text-bold">{name}</p>
@@ -52,7 +52,7 @@ export function MyPokemonCard({ data: { id, name, image, custom_name } }) {
             name,
             image,
           },
-        })
+        },undefined, {scroll :false})
       } className="position-relative d-flex justify-content-center">
         <Image alt={`${name}'s image`} objectFit="contain" src={image} width={350} height={350} />
       </div>
