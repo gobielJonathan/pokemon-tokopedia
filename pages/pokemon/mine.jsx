@@ -9,7 +9,6 @@ import { useContext } from "react";
 export default function PokemonMine() {
   const { pokemons } = useContext(PokemonContext);
 
-
   if (Object.keys(pokemons).length == 0) {
     return <Container>
       <Empty />

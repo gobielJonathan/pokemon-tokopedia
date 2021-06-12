@@ -3,6 +3,7 @@ import { jsx, css } from "@emotion/react";
 export function RoundedBox({ children, width = 32, height = 32, click }) {
   return (
     <div
+      data-testid="rounded-box"
       onClick={click}
       css={css`
         width: ${width}px;

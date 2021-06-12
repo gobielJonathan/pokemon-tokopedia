@@ -22,6 +22,7 @@ export default function Shimmer({ length = 3 }) {
   return (
     <>
       <div
+      data-testid="shimmer"
         css={css`
           width: 0px;
           animation: fullView 0.5s forwards linear;
