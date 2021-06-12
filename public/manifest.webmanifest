@@ -2,7 +2,7 @@
     "theme_color": "#03ac0e",
     "background_color": "#03ac0e",
     "display": "standalone",
-    "start_url": "/pokemon",
+    "start_url": "/",
     "name": "Pokemon",
     "short_name": "Pokemon",
     "description": "List of Pokemon",
