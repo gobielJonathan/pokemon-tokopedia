@@ -9,6 +9,7 @@ export default function Card({ click, children }) {
       css={css`
         border-radius: 5px;
         padding: 1rem;
+        height : 100%;
         position: relative;
         box-shadow: 0 0 3.5px 1px rgb(0, 0, 0, 0.1);
       `}

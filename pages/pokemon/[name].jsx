@@ -128,10 +128,9 @@ export default function PokemonDetail({
               <Card>
                 <Image
                   src={thumbnail}
-                  width={300}
-                  height={300}
                   alt={`${name}'s image`}
-                  objectFit="cover"
+                  objectFit="contain"
+                  layout="fill"
                   className="border-radius"
                 />
               </Card>

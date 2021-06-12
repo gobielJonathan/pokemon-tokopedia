@@ -26,6 +26,16 @@ export default function Space({
     margin = `0 0 ${finSize}`;
   }
 
+  let styles = {}
+  if (direction == "horizontal") {
+    styles['overflowX'] = 'auto'
+    styles['overflowY'] = 'hidden'
+  }
+
+  if (direction == "vertical") {
+    styles['overflowY'] = 'auto'
+    styles['overflowX'] = 'hidden'
+  }
   return (
     <div
       css={{
@@ -33,7 +43,8 @@ export default function Space({
           margin,
         },
         height : "100%",
-        overflow : "auto"
+        overflow : "auto",
+        ...styles
       }}
     >
       {direction == "horizontal" && <Flex wrap={false} height={"full"}>{children}</Flex>}
