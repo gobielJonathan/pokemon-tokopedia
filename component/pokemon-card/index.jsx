@@ -16,7 +16,7 @@ export default function PokemonCard({ data: { id, name, image } }) {
     >
       {pokemons[id] && (
         <Badge position="right">
-          {Object.values(pokemons[id]).flat().length}
+          <span data-testid="counter">{Object.values(pokemons[id]).flat().length}</span>
         </Badge>
       )}
       <div onClick={() => push({
@@ -28,7 +28,7 @@ export default function PokemonCard({ data: { id, name, image } }) {
         }, undefined, {scroll :false})} className="position-relative d-flex justify-content-center">
         <Image alt={`${name}'s image`} objectFit="contain" src={image} width={350} height={350} />
       </div>
-      <p className="text-bold">{name}</p>
+      <div data-testid="name" className="text-bold">{name}</div>
     </Card>
   );
 }

@@ -17,12 +17,12 @@ export default function Badge({ children, position }) {
     <div
       css={{
         backgroundColor: ColorPrimary,
-        color: 'white',
+        color: "white",
         width: "fit-content",
         borderRadius: " 15px",
         padding: "0.25rem 1rem",
-        position: 'absolute',
-        ...pos
+        position: "absolute",
+        ...pos,
       }}
     >
       {children}

@@ -1,14 +1,23 @@
 {
-  "presets": [
-    [
-      "next/babel",
-      {
-        "preset-react": {
-          "runtime": "automatic",
-          "importSource": "@emotion/react"
-        }
-      }
-    ]
-  ],
-  "plugins": ["@emotion/babel-plugin"]
+  "env": {
+    "test" : {
+      "presets": [
+        [
+          "next/babel",
+          {
+            "preset-react": {
+              "runtime": "automatic",
+              "importSource": "@emotion/react"
+            }
+          }
+        ]
+      ],
+      "plugins": ["@emotion/babel-plugin"]
+    },
+    "production" : {
+      "plugins": [
+        ["react-remove-properties", {"properties" :  ["data-testid"] }]
+      ]
+    }
+  }
 }
