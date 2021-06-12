@@ -6,9 +6,8 @@ import SEO from "@/layout/seo";
 import { PokemonContext } from "@/provider/pokemon.provider";
 import { useContext } from "react";
 
-export default function Index() {
+export default function PokemonMine() {
   const { pokemons } = useContext(PokemonContext);
-
 
   if (Object.keys(pokemons).length == 0) {
     return <Container>

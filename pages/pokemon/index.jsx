@@ -8,7 +8,7 @@ import SEO from "@/layout/seo";
 import { useLazyQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 
-export default function Index({ pokemons: { results } }) {
+export default function Pokemon({ pokemons: { results } }) {
   const [pokemons, setPokemons] = useState(results);
   const [getPokemon, { loading, data, error }] = useLazyQuery(GET_POKEMONS);
 

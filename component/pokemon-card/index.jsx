@@ -1,7 +1,7 @@
+import { useContext } from "react";
 import { PokemonContext } from "@/provider/pokemon.provider";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { useContext } from "react";
 import Badge from "../badge";
 import { RoundedBox } from "../box";
 import Card from "../card";
@@ -12,30 +12,29 @@ export default function PokemonCard({ data: { id, name, image } }) {
   const { pokemons } = useContext(PokemonContext);
 
   return (
-    <Card
-    >
+    <Card>
       {pokemons[id] && (
         <Badge position="right">
-          {Object.values(pokemons[id]).flat().length}
+          <span data-testid="pokemon-counter">{Object.values(pokemons[id]).flat().length}</span>
         </Badge>
       )}
       <div onClick={() => push({
-          pathname: "/pokemon/[name]",
-          query: {
-            name,
-            image,
-          },
-        }, undefined, {scroll :false})} className="position-relative d-flex justify-content-center">
+        pathname: "/pokemon/[name]",
+        query: {
+          name,
+          image,
+        },
+      }, undefined, { scroll: false })} data-testid="pokemon-redirect" className="position-relative d-flex justify-content-center">
         <Image alt={`${name}'s image`} objectFit="contain" src={image} width={350} height={350} />
       </div>
-      <p className="text-bold">{name}</p>
+      <div data-testid="pokemon-name" className="text-bold">{name}</div>
     </Card>
   );
 }
 
 export function MyPokemonCard({ data: { id, name, image, custom_name } }) {
   const { push } = useRouter();
-  const {remove} = useContext(PokemonContext)
+  const { remove } = useContext(PokemonContext)
 
   return (
     <Card
@@ -46,18 +45,18 @@ export function MyPokemonCard({ data: { id, name, image, custom_name } }) {
         </TextRed>
       </RoundedBox>
       <div onClick={
-        () =>  push({
+        () => push({
           pathname: "/pokemon/[name]",
           query: {
             name,
             image,
           },
-        },undefined, {scroll :false})
-      } className="position-relative d-flex justify-content-center">
+        }, undefined, { scroll: false })
+      } data-testid="pokemon-redirect" className="position-relative d-flex justify-content-center">
         <Image alt={`${name}'s image`} objectFit="contain" src={image} width={350} height={350} />
       </div>
       <p className="text-bold">
-        {custom_name} / {name}
+        <span data-testid="custom-pokemon-name">{custom_name}</span> / <span data-testid="pokemon-name">{name}</span>
       </p>
     </Card>
   );

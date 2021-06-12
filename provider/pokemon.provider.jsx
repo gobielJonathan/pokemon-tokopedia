@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 
 export const PokemonContext = React.createContext({
-  add: (key, data) => {},
-  pokemons: [],
-  find: (id, name) => {},
-  remove: (id, name) => {},
+  add: (key, data) => { },
+  pokemons: {},
+  find: (id, name) => { },
+  remove: (id, name) => { },
 });
 
 const key = "pokemons";
@@ -13,14 +13,14 @@ export const PokemonProvider = ({ children }) => {
   const [pokemons, setPokemons] = useState({});
 
   useEffect(() => {
-    if (localStorage.getItem(key)) {
-      setPokemons(JSON.parse(localStorage.getItem(key)));
+    if (global.localStorage.getItem(key)) {
+      setPokemons(JSON.parse(global.localStorage.getItem(key)));
     }
   }, []);
 
   useEffect(() => {
     if (pokemons) {
-      localStorage.setItem(key, JSON.stringify(pokemons));
+      global.localStorage.setItem(key, JSON.stringify(pokemons));
     }
   }, [pokemons]);
 
