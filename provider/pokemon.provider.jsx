@@ -5,6 +5,7 @@ export const PokemonContext = React.createContext({
   pokemons: {},
   find: (id, name) => { },
   remove: (id, name) => { },
+  get: id => { }
 });
 
 const key = "pokemons";
@@ -50,12 +51,18 @@ export const PokemonProvider = ({ children }) => {
     return pokemons[id]?.some((x) => x.custom_name == name);
   };
 
+  const get = id => {
+    if (!pokemons[id]) return 0;
+    return Object.values(pokemons[id]).flat().length
+  }
+
   return (
     <PokemonContext.Provider
       value={{
         pokemons,
         add: addPokemon,
         find,
+        get,
         remove
       }}
     >

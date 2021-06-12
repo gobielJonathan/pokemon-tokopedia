@@ -35,13 +35,22 @@ export default function PokemonDetail({
     height,
     abilities,
     types,
+    sprites: {
+      back_default,
+      back_shiny,
+      front_default,
+      front_shiny,
+    }
   },
 }) {
-  const { query } = useRouter();
+
+  const pictures = [back_default, back_shiny, front_default, front_shiny]
+
   const [activeTab, setActiveTab] = useState(0);
   const { open } = useContext(ToastContext);
   const [canAdd, setCanAdd] = useState(false);
   const { add, find: findPokemon } = useContext(PokemonContext);
+  const [thumbnail, setThumbnail] = useState(pictures[0])
 
   const changeTab = (idx) => {
     setActiveTab(idx);
@@ -101,8 +110,8 @@ export default function PokemonDetail({
                     key={idx}
                   >
                     <NavItem
-                    active={idx == activeTab}
-                    click={() => changeTab(idx)}
+                      active={idx == activeTab}
+                      click={() => changeTab(idx)}
                     >{data}</NavItem>
                   </NavTab>
                 ))}
@@ -115,10 +124,10 @@ export default function PokemonDetail({
       <Container>
         <div className="d-flex flex-wrap">
           <Col sm={12} md={12} lg={5} xl={4}>
-            <div style={{ width: 300, height: 300 }}>
+            <div style={{ height: 300 }}>
               <Card>
                 <Image
-                  src={query?.image}
+                  src={thumbnail}
                   width={300}
                   height={300}
                   alt={`${name}'s image`}
@@ -127,10 +136,29 @@ export default function PokemonDetail({
                 />
               </Card>
             </div>
+
+            <div className="d-flex overflow-x" direction="horizontal">
+                {
+                  pictures.slice(1).map((url) => (
+                    <div onClick={() => setThumbnail(url)} style={{flex : "0 0 100px"}} className="position-relative
+                    ">
+                      <Image
+                        src={url}
+                        width={100}
+                        height={100}
+                        alt={`${name}'s image`}
+                        objectFit="cover"
+                        className="border-radius"
+                      />
+                    </div>
+                  ))
+                }
+              </div>
           </Col>
           <Col sm={12} md={12} lg={6} xl={6}>
-            <Margin sm={"mt-2"} md="mt-2" lg="mt-0">
-            <Heading size={2}>{name}</Heading>
+                <Margin sm={"ml-0"} md={"ml-5"}>
+                <Margin sm={"mt-2"} md="mt-2" lg="mt-0">
+              <Heading size={2}>{name}</Heading>
             </Margin>
 
             <Space>
@@ -163,7 +191,7 @@ export default function PokemonDetail({
                     return errors;
                   }}
                   onSubmit={({ name: custom_name }, { setSubmitting }) => {
-                    add(id, { custom_name, name, id, image: query?.image });
+                    add(id, { custom_name, name, id, image: pictures[0] });
                     open(`${custom_name}  has been catched`);
                     setCanAdd(false);
                   }}
@@ -181,18 +209,19 @@ export default function PokemonDetail({
                     </Form>
                   )}
                 </Formik>
-              ) : 
-              <ButtonPrimary click={catchPokemon}>
-                <Heading size=".9">
-                  <Flex centerV>
-                    Catch
-                  </Flex>
-                </Heading>
-              </ButtonPrimary>
-            }
+              ) :
+                <ButtonPrimary click={catchPokemon}>
+                  <Heading size=".9">
+                    <Flex centerV>
+                      Catch
+                    </Flex>
+                  </Heading>
+                </ButtonPrimary>
+              }
 
-              
+
             </Space>
+                </Margin>
           </Col>
         </div>
 
