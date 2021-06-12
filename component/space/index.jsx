@@ -23,7 +23,7 @@ export default function Space({
   if (direction == "vertical") {
     margin = `${finSize} 0`;
   } else {
-    margin = `0 ${finSize}`;
+    margin = `0 0 ${finSize}`;
   }
 
   return (

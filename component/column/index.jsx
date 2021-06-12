@@ -33,7 +33,8 @@ export default function Col({ col, sm, md, lg, xl, children }) {
     <div
       css={mq({
         width,
-        height : "100%"
+        height : "100%",
+        padding : "0 .5rem"
       })}
     >
       {children}

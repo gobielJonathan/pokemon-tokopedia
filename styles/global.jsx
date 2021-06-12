@@ -126,5 +126,9 @@ export const GlobalStyles = () => <Global styles={
     .overflow-y{
       overflow-y: auto
     }
+
+    .transition{
+      transition : all .2s linear;
+    }
   `
 } />

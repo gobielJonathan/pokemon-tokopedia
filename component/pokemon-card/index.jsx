@@ -9,20 +9,17 @@ import { TextRed } from "../text";
 
 export default function PokemonCard({ data: { id, name, image } }) {
   const { push } = useRouter();
-  const { pokemons } = useContext(PokemonContext);
+  const { get } = useContext(PokemonContext);
 
   return (
     <Card>
-      {pokemons[id] && (
-        <Badge position="right">
-          <span data-testid="pokemon-counter">{Object.values(pokemons[id]).flat().length}</span>
+      <Badge position="right">
+          <span data-testid="pokemon-counter">{get(id)} owned</span>
         </Badge>
-      )}
       <div onClick={() => push({
         pathname: "/pokemon/[name]",
         query: {
           name,
-          image,
         },
       }, undefined, { scroll: false })} data-testid="pokemon-redirect" className="position-relative d-flex justify-content-center">
         <Image alt={`${name}'s image`} objectFit="contain" src={image} width={350} height={350} />

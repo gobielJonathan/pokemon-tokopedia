@@ -24,13 +24,18 @@ const mocks = [
         "id": 3
     },
 ]
+const mockmine = { 3: [], 4: [] }
 
 test('Pokemon Card', async () => {
 
     for await (const data of mocks) {
         let root = render(
             <PokemonContext.Provider value={{
-                pokemons: { 3: [], 4: [] }
+                pokemons: mockmine,
+                get: id => {
+                    if (!mockmine[id]) return 0;
+                        return Object.values(mockmine[id]).flat().length
+                }
             }}>
                 <PokemonCard data={data} />
             </PokemonContext.Provider>
@@ -46,13 +51,18 @@ test('Pokemon Card', async () => {
         if (global.localStorage.getItem("pokemons")) {
             const localData = JSON.parse(global.localStorage.getItem("pokemons"))
 
+            let len = 0
+
             if (localData[data.id]) {
-                await waitFor(() => {
-                    const count = root.getByTestId('pokemon-counter')
-                    const len = Object.values(localData[data.id]).flat().length
-                    expect(count.innerHTML).toBe(len.toString())
-                })
+                len = Object.values(localData[data.id]).flat().length    
             }
+
+            await waitFor(() => {
+                const count = root.getByTestId('pokemon-counter')
+                expect(count.innerHTML).toBe(len.toString() + " owned")
+            })
+
+            
         }
 
         fireEvent.click(root.getByTestId('pokemon-redirect'))
