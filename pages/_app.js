@@ -1,12 +1,13 @@
 import Layout from '@/component/layout'
+import { GlobalStyles } from '@/styles/global'
 import Provider from '../provider/index.provider'
-import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
   return <Provider>
     <Layout>
-    <Component {...pageProps} />
-  </Layout>
+      <GlobalStyles />
+      <Component {...pageProps} />
+    </Layout>
   </Provider>
 }
 

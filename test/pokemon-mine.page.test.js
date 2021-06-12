@@ -53,7 +53,6 @@ test('Pokemon Mine Page', async () => {
 
     let len = Object.values(provider.pokemons).flat().length
 
-    console.log(len)
     await waitFor(() => {
         const names = screen.queryAllByTestId('pokemon-name')
         expect(names.length).toBe(len)
