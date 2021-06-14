@@ -1,3 +1,13 @@
+# Pokemon
+**Pokemon** is a mobile desktop responsive website created for a pokemon fans to view pokemon's data and store favorite his pokemon. The website itself is build on **NextJS** and pull the data from **graphql-pokeapi**.
+
+##  Check out the website: 
+[Pokemon Tokopedia](http://pokemon-tokopedia.vercel.app/pokemon)
+
+
+## graphql-pokeapi:
+[graphql-pokeapi](https://github.com/mazipan/graphql-pokeapi)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
