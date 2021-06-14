@@ -23,6 +23,7 @@ module.exports = withPlugins([
   pwa: {
     dest: 'public',
     runtimeCaching,
+    disable: dev
   },
   generateBuildId: () => nextBuildId({ dir: __dirname }),
   async redirects() {
