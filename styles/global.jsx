@@ -29,6 +29,7 @@ export const GlobalStyles = () => <Global styles={
     html {
       scroll-behavior: smooth
     }
+    
     html,
     body {
       padding: 0;

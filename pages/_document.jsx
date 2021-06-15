@@ -20,22 +20,26 @@ class MyDocument extends Document {
       <Html lang={this.props.lang}>
         <Head>
           <link
-            rel="stylesheet"
+            rel="preload"
+            crossOrigin="anonymous"
             as="font"
             href="/assets/fonts/Roboto/Roboto-Regular.ttf"
           />
           <link
-            rel="stylesheet"
+            rel="preload"
+            crossOrigin="anonymous"
             as="font"
             href="/assets/fonts/Roboto/Roboto-Bold.ttf"
           />
           <link
-            rel="stylesheet"
+            rel="preload"
+            crossOrigin="anonymous"
             as="font"
             href="/assets/fonts/Roboto/Roboto-Light.ttf"
           />
           <link
-            rel="stylesheet"
+            rel="preload"
+            crossOrigin="anonymous"
             as="font"
             href="/assets/fonts/Roboto/Roboto-Italic.ttf"
           />
