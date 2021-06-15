@@ -13,7 +13,6 @@ import { client } from "@/gql/client";
 import { GET_POKEMON } from "@/gql/query";
 import SEO from "@/layout/seo";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import { NavTab } from "@/component/nav";
 import { NavItem } from "@/component/nav";
 import { useContext, useState } from "react";
@@ -35,14 +34,16 @@ export default function PokemonDetail({
     height,
     abilities,
     types,
-    sprites: {
-      back_default,
-      back_shiny,
-      front_default,
-      front_shiny,
-    }
+    sprites
   },
 }) {
+
+  const {
+    back_default,
+    back_shiny,
+    front_default,
+    front_shiny,
+  } = sprites ?? {}
 
   const pictures = [back_default, back_shiny, front_default, front_shiny]
 
@@ -138,8 +139,8 @@ export default function PokemonDetail({
 
             <div className="d-flex overflow-x" direction="horizontal">
                 {
-                  pictures.slice(1).map((url) => (
-                    <div onClick={() => setThumbnail(url)} style={{flex : "0 0 100px"}} className="position-relative
+                  pictures.slice(1).map((url, idx) => (
+                    <div key={idx} onClick={() => setThumbnail(url)} style={{flex : "0 0 100px"}} className="position-relative
                     ">
                       <Image
                         src={url}
